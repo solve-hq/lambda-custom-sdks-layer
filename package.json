@@ -1,0 +1,10 @@
+{
+  "name": "@solve-hq/lambda-custom-sdks-layer",
+  "version": "1.0.0",
+  "description": "A Lambda Layer that packages the aws-sdk and aws-xray-sdk to use in nodejs lambda functions",
+  "main": "index.js",
+  "repository": "https://github.com/solve-hq/lambda-custom-sdks-layer",
+  "author": "Eric Allam",
+  "license": "MIT",
+  "private": true
+}

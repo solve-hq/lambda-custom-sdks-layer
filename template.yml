@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: A Layer that packages the newest versions of aws-sdk and aws-xray-sdk
+
+Resources:
+  nodejs:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./nodejs
+      Handler: index.handler
+      Runtime: nodejs8.10
+
+  NodeJSLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: CustomSdksLayer
+      Description: A Layer that packages the newest versions of aws-sdk and aws-xray-sdk
+      ContentUri: ./.aws-sam/build
+      CompatibleRuntimes:
+        - nodejs8.10
+      LicenseInfo: "Available under the MIT-0 license."
+      RetentionPolicy: Retain
+
+  LayerVersionARN:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Name: /Solve/Layers/NodeJS/CustomSDKs/ARN
+      Value: !Ref NodeJSLayer
+      Description: The LayerVersion ARN of the NodeJS layer that packages aws-sdk and aws-xray-sdk
+
+Outputs:
+  LayerVersionArn:
+    Description: "The Layer Version ARN to use when setting the layers of a function"
+    Value: !Ref NodeJSLayer
