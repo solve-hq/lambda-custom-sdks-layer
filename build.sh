@@ -12,7 +12,7 @@ if [ $# -eq 0 ]; then
   exit 1
 elif [ "$1" = "deploy" ] && [ $# -eq 4 ]; then 
   AWS_REGION=$2
-  BUCKET_NAME="$3-$AWS_REGION"
+  BUCKET_NAME=$3
   PROFILE=$4
   
   sam build

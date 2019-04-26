@@ -12,16 +12,10 @@ A Lambda Layer that packages the aws-sdk and aws-xray-sdk to use in nodejs 8.10 
 To deploy this layer to a new region, use the `build.sh` script like so:
 
 ```bash
-$ ./build.sh deploy <Region> <Bucket Prefix> <Profile>
+$ ./build.sh deploy <Region> <Bucket Name> <Profile>
 ```
 
-The `<Bucket Prefix>` argument will be combined with the `<Region>` argument to form the full name of the s3 bucket to store the layer code. So for example, this command:
-
-```bash
-$ ./build.sh deploy us-west-1 source-code solve-dev-eric
-```
-
-Will upload the layer code to the `source-code-us-west-1` bucket. That bucket must exist in the `us-west-1` region for the deploy to be successful.
+The bucket must exist in the `us-west-1` region for the deploy to be successful.
 
 This stack will need to be created in the region before deploying functions that use the layer in said region.
 
