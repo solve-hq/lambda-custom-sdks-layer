@@ -2,6 +2,19 @@ AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: A Layer that packages the newest versions of aws-sdk and aws-xray-sdk
 
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: lambda-nodejs-custom-sdks-layer
+    Description: A Lambda Layer that packages the newest versions of aws-sdk and aws-xray-sdk for nodejs8.10 functions
+    Author: Solve HQ
+    SpdxLicenseId: MIT
+    LicenseUrl: LICENSE
+    ReadmeUrl: README.md
+    Labels: ['lambda', 'layer', 'sdks', 'nodejs']
+    HomePageUrl: https://github.com/solve-hq/lambda-custom-sdks-layer
+    SemanticVersion: 2.423.0
+    SourceCodeUrl: https://github.com/solve-hq/lambda-custom-sdks-layer
+
 Resources:
   nodejs:
     Type: AWS::Serverless::Function
@@ -13,21 +26,12 @@ Resources:
   NodeJSLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
-      LayerName: CustomSdksLayer
       Description: A Layer that packages the newest versions of aws-sdk and aws-xray-sdk
       ContentUri: ./.aws-sam/build
       CompatibleRuntimes:
         - nodejs8.10
       LicenseInfo: "Available under the MIT-0 license."
       RetentionPolicy: Retain
-
-  LayerVersionARN:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Type: String
-      Name: /Solve/Layers/NodeJS/CustomSDKs/ARN
-      Value: !Ref NodeJSLayer
-      Description: The LayerVersion ARN of the NodeJS layer that packages aws-sdk and aws-xray-sdk
 
 Outputs:
   LayerVersionArn:
