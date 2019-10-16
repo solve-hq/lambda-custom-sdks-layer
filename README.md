@@ -4,8 +4,8 @@ A Lambda Layer that packages the aws-sdk and aws-xray-sdk to use in nodejs 8.10 
 
 ## Current Versions
 
-- [AWS SDK v2.423.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.395.0)
-- [AWS Xray 2.2.0](https://github.com/aws/aws-xray-sdk-node/releases/tag/aws-xray-sdk%402.2.0)
+- [AWS SDK 2.550.0](https://github.com/aws/aws-sdk-js/releases/tag/v2.395.0)
+- [AWS Xray 2.4.0](https://github.com/aws/aws-xray-sdk-node/releases/tag/aws-xray-sdk%402.2.0)
 
 ## Build and Deploy
 

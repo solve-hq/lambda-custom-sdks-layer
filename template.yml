@@ -10,9 +10,9 @@ Metadata:
     SpdxLicenseId: MIT
     LicenseUrl: LICENSE
     ReadmeUrl: README.md
-    Labels: ['lambda', 'layer', 'sdks', 'nodejs']
+    Labels: ["lambda", "layer", "sdks", "nodejs"]
     HomePageUrl: https://github.com/solve-hq/lambda-custom-sdks-layer
-    SemanticVersion: 2.423.0
+    SemanticVersion: 2.550.0
     SourceCodeUrl: https://github.com/solve-hq/lambda-custom-sdks-layer
 
 Resources:
